@@ -1,0 +1,97 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-accent: #B68D40;
+  --color-border-custom: #ECECEC;
+  --color-primary-text: #171717;
+  --color-secondary-text: #6B7280;
+  
+  --font-heading: "Satoshi", sans-serif;
+  --font-sans: var(--font-sans), sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+/* Custom technical styling utility */
+.tech-description {
+  text-align: start;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Smooth Scrolling Setup for Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Form inputs & inputs outline styling reset */
+input, textarea, select {
+  outline: none;
+}
+
+/* Hide default scrollbars for specific visual frames */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Image zoom effect on hover */
+.hover-zoom-img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-zoom-container:hover .hover-zoom-img {
+  transform: scale(1.05);
+}
+
+/* Layout lines utilities */
+.draw-line {
+  position: relative;
+}
+.draw-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border-custom);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.draw-line:hover::after {
+  transform: scaleX(1);
+}
