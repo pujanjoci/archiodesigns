@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/og-projects.png',
+        url: '/og-projects.jpg',
         width: 1200,
         height: 630,
         alt: 'Archio Designs Architectural & Interior Portfolio',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Selected Architectural & Interior Projects | Archio Designs',
     description: 'Portfolio of luxury residential homes, boutique hotels, commercial lounges, interior design, and heritage restorations in Nepal.',
-    images: ['/og-projects.png'],
+    images: ['/og-projects.jpg'],
   },
 };
 

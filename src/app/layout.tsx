@@ -13,8 +13,14 @@ const inter = Inter({
   display: 'swap',
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : process.env.NEXT_PUBLIC_SITE_URL || 'https://archiodesigns.vercel.app';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://archiodesigns.com'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Archio Designs | Premium Architecture & Interior Design Nepal',
     template: '%s | Archio Designs',
@@ -30,7 +36,7 @@ export const metadata: Metadata = {
     'Sustainable Architecture Nepal',
     'Luxury Interior Design',
   ],
-  authors: [{ name: 'Archio Designs', url: 'https://archiodesigns.com' }],
+  authors: [{ name: 'Archio Designs', url: siteUrl }],
   creator: 'Archio Designs',
   publisher: 'Archio Designs',
   applicationName: 'Archio Designs',
@@ -65,11 +71,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Archio Designs | Premium Architecture & Interior Design',
     description: 'Award-winning architecture and interior design firm based in Nepal, crafting modern, culture-driven spaces.',
-    url: 'https://archiodesigns.com',
+    url: siteUrl,
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/og-home.png',
+        url: '/og-home.jpg',
         width: 1200,
         height: 630,
         alt: 'Archio Designs - Architecture & Interior Design Firm',
@@ -82,7 +88,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Archio Designs | Premium Architecture & Interior Design',
     description: 'Crafting spaces that connect people with culture, place, and value.',
-    images: ['/og-home.png'],
+    images: ['/og-home.jpg'],
   },
 };
 

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/og-services.png',
+        url: '/og-services.jpg',
         width: 1200,
         height: 630,
         alt: 'Archio Designs Architectural & Interior Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Architectural, Interior & Construction Services | Archio Designs',
     description: 'Comprehensive architectural planning, interior styling, turnkey construction, heritage renovation, consultancy, and 3D visualization.',
-    images: ['/og-services.png'],
+    images: ['/og-services.jpg'],
   },
 };
 
