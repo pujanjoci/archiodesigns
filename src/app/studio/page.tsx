@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/archiodesigns.png',
+        url: '/og-studio.png',
         width: 1200,
         height: 630,
-        alt: 'Archio Designs Studio',
+        alt: 'Archio Designs Studio Philosophy & Team',
       },
     ],
     locale: 'en_US',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Studio Philosophy & Design Team | Archio Designs',
     description: 'Discover Archio Designs’ architectural philosophy, leadership team, firm chronology, and design honors.',
-    images: ['/archiodesigns.png'],
+    images: ['/og-studio.png'],
   },
 };
 

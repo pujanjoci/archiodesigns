@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/archiodesigns.png',
+        url: '/og-projects.png',
         width: 1200,
         height: 630,
-        alt: 'Archio Designs Portfolio',
+        alt: 'Archio Designs Architectural & Interior Portfolio',
       },
     ],
     locale: 'en_US',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Selected Architectural & Interior Projects | Archio Designs',
     description: 'Portfolio of luxury residential homes, boutique hotels, commercial lounges, interior design, and heritage restorations in Nepal.',
-    images: ['/archiodesigns.png'],
+    images: ['/og-projects.png'],
   },
 };
 

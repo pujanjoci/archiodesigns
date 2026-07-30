@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/archiodesigns.png',
+        url: '/og-contact.png',
         width: 1200,
         height: 630,
         alt: 'Contact Archio Designs Studio',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact Studio & Project Inquiry | Archio Designs',
     description: 'Connect with Archio Designs in Chakupat, Lalitpur. Submit a project brief for your architectural vision.',
-    images: ['/archiodesigns.png'],
+    images: ['/og-contact.png'],
   },
 };
 

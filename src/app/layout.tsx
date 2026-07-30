@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     siteName: 'Archio Designs',
     images: [
       {
-        url: '/archiodesigns.png',
+        url: '/og-home.png',
         width: 1200,
         height: 630,
         alt: 'Archio Designs - Architecture & Interior Design Firm',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Archio Designs | Premium Architecture & Interior Design',
     description: 'Crafting spaces that connect people with culture, place, and value.',
-    images: ['/archiodesigns.png'],
+    images: ['/og-home.png'],
   },
 };
 
