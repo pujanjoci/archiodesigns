@@ -27,7 +27,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${project.title} | Archio Designs`,
       description: project.description.slice(0, 160),
-      images: [{ url: project.heroImage }],
+      images: [
+        { url: project.heroImage, alt: project.title },
+        { url: '/archiodesigns.png', width: 1200, height: 630, alt: 'Archio Designs' },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Archio Designs`,
+      description: project.description.slice(0, 160),
+      images: [project.heroImage, '/archiodesigns.png'],
     },
   };
 }

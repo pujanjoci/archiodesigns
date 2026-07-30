@@ -4,6 +4,8 @@ import './globals.css';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import SmoothScroll from '../components/animations/SmoothScroll';
+import DisableDevTools from '../components/security/DisableDevTools';
+import FaviconSwitcher from '../components/layout/FaviconSwitcher';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,18 +22,41 @@ export const metadata: Metadata = {
   keywords: ['Architecture Nepal', 'Interior Design Lalitpur', 'Archio Designs', 'Boutique Hotel Design', 'Modern Residential Architecture'],
   authors: [{ name: 'Archio Designs' }],
   metadataBase: new URL('https://archiodesigns.com'),
+  icons: {
+    icon: [
+      { url: '/archiodesigns.png', media: '(prefers-color-scheme: light)' },
+      { url: '/archiodesigns-dark.png', media: '(prefers-color-scheme: dark)' },
+    ],
+    shortcut: [
+      { url: '/archiodesigns.png', media: '(prefers-color-scheme: light)' },
+      { url: '/archiodesigns-dark.png', media: '(prefers-color-scheme: dark)' },
+    ],
+    apple: [
+      { url: '/archiodesigns.png', media: '(prefers-color-scheme: light)' },
+      { url: '/archiodesigns-dark.png', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
   openGraph: {
     title: 'Archio Designs | Premium Architecture & Interior Design',
     description: 'Award-winning architecture and interior design firm based in Nepal, crafting modern, culture-driven spaces.',
     url: 'https://archiodesigns.com',
     siteName: 'Archio Designs',
+    images: [
+      {
+        url: '/archiodesigns.png',
+        width: 1200,
+        height: 630,
+        alt: 'Archio Designs - Architecture & Interior Design Firm',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Archio Designs',
+    title: 'Archio Designs | Premium Architecture & Interior Design',
     description: 'Crafting spaces that connect people with culture, place, and value.',
+    images: ['/archiodesigns.png'],
   },
 };
 
@@ -42,7 +67,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans bg-white text-primary-text">
+      <body className="min-h-full flex flex-col font-sans bg-white text-primary-text select-none">
+        <DisableDevTools />
+        <FaviconSwitcher />
         <SmoothScroll>
           <Navbar />
           <main className="flex-grow">{children}</main>

@@ -2,36 +2,81 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Compass, Layout, HardHat, RefreshCw, Briefcase, Box, Sparkles } from 'lucide-react';
 import { services } from '../../data/services';
-import Reveal, { StaggerContainer, StaggerItem } from '../../components/animations/Reveal';
+import Reveal from '../../components/animations/Reveal';
 
 export default function Services() {
+  const getServiceIcon = (id: string) => {
+    switch (id) {
+      case 'architecture': return <Compass className="w-6 h-6 text-accent" />;
+      case 'interior-design': return <Layout className="w-6 h-6 text-accent" />;
+      case 'construction': return <HardHat className="w-6 h-6 text-accent" />;
+      case 'renovation': return <RefreshCw className="w-6 h-6 text-accent" />;
+      case 'consultancy': return <Briefcase className="w-6 h-6 text-accent" />;
+      case 'visualization': return <Box className="w-6 h-6 text-accent" />;
+      default: return <Sparkles className="w-6 h-6 text-accent" />;
+    }
+  };
+
   return (
-    <div className="bg-white min-h-screen pt-28 pb-16 md:pt-36 md:pb-24">
+    <div className="bg-white text-primary-text min-h-screen pt-28 pb-16 md:pt-36 md:pb-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* Page Header */}
-        <div className="max-w-2xl space-y-4 mb-20 md:mb-32">
+        <div className="max-w-3xl space-y-4 mb-16 md:mb-24">
           <span className="font-heading text-xs uppercase tracking-[0.3em] text-accent font-semibold block">
-            Capabilities
+            Capabilities & Disciplines
           </span>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-primary-text leading-tight uppercase">
             Services & Expertise
           </h1>
-          <p className="text-sm text-secondary-text leading-relaxed font-light">
-            We provide comprehensive services from the initial conceptual brief to structural detailing, custom interior styling, and on-site construction supervision.
+          <p className="text-xs sm:text-sm text-secondary-text leading-relaxed font-light">
+            We provide comprehensive services from the initial conceptual brief to structural detailing, custom interior styling, and on-site construction supervision across Lalitpur and nationwide.
           </p>
         </div>
 
-        {/* Quick Menu anchor points */}
+        {/* Services Overview Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+          {services.map((service, idx) => (
+            <div
+              key={service.id}
+              className="bg-[#FAFAFA] border border-border-custom p-8 flex flex-col justify-between space-y-6 hover:border-accent transition-colors shadow-sm rounded-none"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-accent font-bold">0{idx + 1}</span>
+                  <div className="p-2 bg-white border border-border-custom">{getServiceIcon(service.id)}</div>
+                </div>
+                <h3 className="font-heading text-xl font-bold tracking-tight text-primary-text uppercase">
+                  {service.title}
+                </h3>
+                <p className="text-xs text-secondary-text font-light leading-relaxed line-clamp-3">
+                  {service.description}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-border-custom">
+                <a
+                  href={`#${service.id}`}
+                  className="inline-flex items-center space-x-2 text-xs uppercase tracking-wider text-primary-text hover:text-accent font-semibold transition-colors"
+                >
+                  <span>Detailed Specifications</span>
+                  <ArrowRight size={12} />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Quick Navigation Menu */}
         <div className="border-b border-border-custom pb-6 mb-24 overflow-x-auto no-scrollbar">
           <nav className="flex space-x-8 md:space-x-12 min-w-max">
             {services.map((service) => (
               <a
                 key={service.id}
                 href={`#${service.id}`}
-                className="font-heading text-xs uppercase tracking-[0.2em] text-primary-text hover:text-accent transition-colors"
+                className="font-heading text-xs uppercase tracking-[0.2em] text-primary-text hover:text-accent transition-colors font-medium"
               >
                 {service.title}
               </a>
@@ -39,7 +84,7 @@ export default function Services() {
           </nav>
         </div>
 
-        {/* Detailed Services list */}
+        {/* Detailed Services Breakdown */}
         <div className="space-y-36 md:space-y-48">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
@@ -49,18 +94,18 @@ export default function Services() {
                 id={service.id}
                 className="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
               >
-                {/* 1. Narrative & details block */}
+                {/* Narrative & details block */}
                 <div className={`lg:col-span-5 space-y-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                   <div className="space-y-4">
                     <span className="font-heading text-xs text-accent font-semibold block">
-                      0{index + 1} &nbsp;/&nbsp; Service
+                      0{index + 1} &nbsp;/&nbsp; Service Specification
                     </span>
                     <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary-text uppercase">
                       {service.title}
                     </h2>
                   </div>
 
-                  <p className="text-sm text-secondary-text leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-secondary-text leading-relaxed font-light">
                     {service.description}
                   </p>
 
@@ -82,7 +127,7 @@ export default function Services() {
                   <div className="pt-4">
                     <Link
                       href="/contact"
-                      className="inline-flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-primary-text hover:text-accent pb-1 border-b border-primary-text hover:border-accent transition-colors group"
+                      className="inline-flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-primary-text hover:text-accent pb-1 border-b border-primary-text hover:border-accent transition-colors group font-semibold"
                     >
                       <span>Inquire about this capability</span>
                       <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform" />
@@ -90,11 +135,11 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* 2. Photo & step workflow block */}
+                {/* Photo & step workflow block */}
                 <div className={`lg:col-span-7 space-y-12 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                   {/* Service Hero Photo */}
                   <Reveal type="clip-path" direction="up" duration={1.2}>
-                    <div className="relative aspect-[16/9] w-full bg-neutral-100 overflow-hidden">
+                    <div className="relative aspect-[16/9] w-full bg-[#FAFAFA] overflow-hidden shadow-xl border border-neutral-200 rounded-none">
                       <Image
                         src={service.heroImage}
                         alt={service.title}
@@ -105,19 +150,25 @@ export default function Services() {
                     </div>
                   </Reveal>
 
-                  {/* Step-by-step workflow */}
+                  {/* Step Workflow Grid */}
                   <div className="space-y-6">
-                    <h4 className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-primary-text border-b border-border-custom pb-3">
-                      Process & Execution Stages
+                    <h4 className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-primary-text">
+                      Execution Phases
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
-                      {service.workflow.map((flow) => (
-                        <div key={flow.step} className="space-y-2 border-l border-border-custom pl-4">
-                          <span className="text-[10px] text-accent font-semibold uppercase tracking-wider block">
-                            {flow.step} &nbsp;—&nbsp; {flow.title}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {service.workflow.map((step) => (
+                        <div
+                          key={step.step}
+                          className="p-5 border border-border-custom bg-[#FAFAFA] space-y-2 hover:border-accent transition-colors rounded-none"
+                        >
+                          <span className="font-mono text-xs text-accent font-bold block">
+                            PHASE {step.step}
                           </span>
-                          <p className="text-xs text-secondary-text leading-relaxed font-light">
-                            {flow.description}
+                          <h5 className="font-heading text-sm font-bold text-primary-text">
+                            {step.title}
+                          </h5>
+                          <p className="text-xs text-secondary-text font-light leading-relaxed">
+                            {step.description}
                           </p>
                         </div>
                       ))}
