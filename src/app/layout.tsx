@@ -14,14 +14,40 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://archiodesigns.com'),
   title: {
     default: 'Archio Designs | Premium Architecture & Interior Design Nepal',
     template: '%s | Archio Designs',
   },
-  description: 'Archio Designs is an award-winning architecture and interior design firm based in Nepal, crafting individual, aesthetically stunning solutions that connect culture, site, and timeless design.',
-  keywords: ['Architecture Nepal', 'Interior Design Lalitpur', 'Archio Designs', 'Boutique Hotel Design', 'Modern Residential Architecture'],
-  authors: [{ name: 'Archio Designs' }],
-  metadataBase: new URL('https://archiodesigns.com'),
+  description: 'Archio Designs is an award-winning architecture and interior design firm based in Lalitpur, Nepal, crafting bespoke residential, hospitality, and commercial spaces connecting culture, site, and timeless design.',
+  keywords: [
+    'Architecture Nepal',
+    'Interior Design Lalitpur',
+    'Archio Designs',
+    'Boutique Hotel Design',
+    'Modern Residential Architecture',
+    'Kathmandu Valley Architects',
+    'Sustainable Architecture Nepal',
+    'Luxury Interior Design',
+  ],
+  authors: [{ name: 'Archio Designs', url: 'https://archiodesigns.com' }],
+  creator: 'Archio Designs',
+  publisher: 'Archio Designs',
+  applicationName: 'Archio Designs',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/archiodesigns.png', media: '(prefers-color-scheme: light)' },

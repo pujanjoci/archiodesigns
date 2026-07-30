@@ -1,3 +1,20 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy policy for Archio Designs detailing data collection, confidentiality, and data usage regarding project briefs and client communications.',
+  alternates: {
+    canonical: 'https://archiodesigns.com/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Archio Designs',
+    description: 'Privacy policy for Archio Designs detailing data collection, confidentiality, and data usage.',
+    url: 'https://archiodesigns.com/privacy',
+    siteName: 'Archio Designs',
+    type: 'website',
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <article className="bg-white min-h-screen pt-28 pb-16 md:pt-36 md:pb-24">

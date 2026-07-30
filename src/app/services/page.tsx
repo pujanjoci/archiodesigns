@@ -1,10 +1,39 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Check, Compass, Layout, HardHat, RefreshCw, Briefcase, Box, Sparkles } from 'lucide-react';
 import { services } from '../../data/services';
 import Reveal from '../../components/animations/Reveal';
+
+export const metadata: Metadata = {
+  title: 'Architectural, Interior & Construction Services',
+  description: 'Explore Archio Designs comprehensive services in architectural planning, interior styling, turnkey construction, heritage renovation, structural consultancy, and 3D visualization in Nepal.',
+  alternates: {
+    canonical: 'https://archiodesigns.com/services',
+  },
+  openGraph: {
+    title: 'Architectural, Interior & Construction Services | Archio Designs',
+    description: 'Comprehensive architectural planning, interior styling, turnkey construction, heritage renovation, consultancy, and 3D visualization.',
+    url: 'https://archiodesigns.com/services',
+    siteName: 'Archio Designs',
+    images: [
+      {
+        url: '/archiodesigns.png',
+        width: 1200,
+        height: 630,
+        alt: 'Archio Designs Services',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Architectural, Interior & Construction Services | Archio Designs',
+    description: 'Comprehensive architectural planning, interior styling, turnkey construction, heritage renovation, consultancy, and 3D visualization.',
+    images: ['/archiodesigns.png'],
+  },
+};
 
 export default function Services() {
   const getServiceIcon = (id: string) => {

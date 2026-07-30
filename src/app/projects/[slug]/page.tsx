@@ -21,21 +21,48 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
 
+  const title = `${project.title} — ${project.category} Project`;
+  const description = `${project.title} (${project.location}, ${project.year}). ${project.description.slice(0, 150)}...`;
+  const canonicalUrl = `https://archiodesigns.com/projects/${project.slug}`;
+
   return {
-    title: `${project.title} | Projects`,
-    description: project.description.slice(0, 160),
+    title,
+    description,
+    keywords: [
+      project.title,
+      `${project.category} Architecture`,
+      `${project.location} Design`,
+      'Archio Designs Architecture',
+      'Nepal Architecture Case Study',
+    ],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${project.title} | Archio Designs`,
-      description: project.description.slice(0, 160),
+      description,
+      url: canonicalUrl,
+      siteName: 'Archio Designs',
+      type: 'article',
       images: [
-        { url: project.heroImage, alt: project.title },
-        { url: '/archiodesigns.png', width: 1200, height: 630, alt: 'Archio Designs' },
+        {
+          url: project.heroImage,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} - ${project.category} Project by Archio Designs`,
+        },
+        {
+          url: '/archiodesigns.png',
+          width: 1200,
+          height: 630,
+          alt: 'Archio Designs Logo',
+        },
       ],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${project.title} | Archio Designs`,
-      description: project.description.slice(0, 160),
+      description,
       images: [project.heroImage, '/archiodesigns.png'],
     },
   };
