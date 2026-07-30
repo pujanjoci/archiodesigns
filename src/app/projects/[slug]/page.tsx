@@ -379,7 +379,7 @@ export default async function ProjectDetail({ params }: PageProps) {
 
       {/* 11. Next Case Study Loop Navigation */}
       <section className="bg-[#171717] text-white">
-        <Link href={`/projects/${nextProject.slug}`} className="block group">
+        <Link href={`/projects/${nextProject.slug}`} scroll={true} className="block group">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-36 flex flex-col md:flex-row items-center justify-between gap-8 cursor-pointer">
             <div className="space-y-4 text-center md:text-left">
               <span className="text-xs uppercase tracking-[0.3em] text-accent font-semibold block group-hover:tracking-[0.4em] transition-all duration-500">

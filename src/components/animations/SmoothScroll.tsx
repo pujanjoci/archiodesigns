@@ -1,10 +1,25 @@
 'use client';
 
-import { ReactLenis } from 'lenis/react';
-import { ReactNode } from 'react';
+import { ReactLenis, useLenis } from 'lenis/react';
+import { ReactNode, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface SmoothScrollProps {
   children: ReactNode;
+}
+
+function ScrollReset() {
+  const pathname = usePathname();
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, lenis]);
+
+  return null;
 }
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
@@ -22,6 +37,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
         infinite: false,
       }}
     >
+      <ScrollReset />
       {children}
     </ReactLenis>
   );
